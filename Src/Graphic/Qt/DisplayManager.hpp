@@ -7,6 +7,9 @@
 #define SOLID_MONITOR_DISPLAYMANAGER_HPP
 
 #include "IDisplayManager.hpp"
+#include "AddWidget.hpp"
+#include "Menu.hpp"
+#include "TabManager.hpp"
 #include <QApplication>
 #include <QtWidgets>
 #include <memory>
@@ -15,22 +18,22 @@ class DisplayManager : public IDisplayManager {
 public:
     DisplayManager();
     ~DisplayManager() override = default;
-    void process(std::unordered_map<std::string, moduleData> datas) override;
-    void init(const std::vector<std::string> &availableModules) override;
+    void process(const std::unordered_map<std::string, moduleData> &datas)
+    override;
+    void init(const std::vector<DataTypes> &availableModules) override;
     bool isOpen() const override;
 
-    const std::vector<std::string> &getEnableModules() const override;
+    const std::vector<DataTypes> & getEnableModules() const override;
 
 private:
     int _args;
     QApplication _qApp;
     QWidget _mainWindow;
-    QPushButton _edit;
-    QTabWidget _tabList;
-    std::map<std::string, std::unique_ptr<QWidget>> _tabs;
+    std::unique_ptr<Menu> _menu;
+    std::unique_ptr<TabManager> _tabList;
     QVBoxLayout _layout;
-    std::vector<std::string> _availableModules;
-    std::vector<std::string> _enableModules;
+    std::vector<DataTypes> _availableModules;
+    std::vector<DataTypes> _enableModules;
 };
 
 #endif //SOLID_MONITOR_DISPLAYMANAGER_HPP

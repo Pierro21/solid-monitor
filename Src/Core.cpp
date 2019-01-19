@@ -25,8 +25,11 @@ core::Core::~Core()
 
 void core::Core::run()
 {
-    _display->init(std::vector<std::string>({"toto", "roger"}));
-    _display->process(std::unordered_map<std::string, moduleData>());
+    std::vector<DataTypes> testV;
+    testV.emplace_back("CPU", true, true, true);
+    testV.emplace_back("GPU", true, false, true);
+    testV.emplace_back("Clock", true, true, false);
+    _display->init(testV);
     while (_display->isOpen())
         _display->process(std::unordered_map<std::string, moduleData>());
 }

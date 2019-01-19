@@ -20,7 +20,7 @@ add_executable(${PROJECT_NAME}
         Src/Core.hpp
         Src/Graphic/IDisplayManager.hpp
         Src/Modules/IModule.hpp
-        Src/DLLoader.hpp Src/DLManager.cpp Src/DLManager.hpp Src/types.hpp)
+        Src/DLLoader.hpp Src/DLManager.cpp Src/DLManager.hpp Src/types.hpp Src/DataTypes.cpp Src/DataTypes.hpp)
 
 
 
