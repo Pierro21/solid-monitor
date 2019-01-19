@@ -17,6 +17,7 @@ _args(0),
 _qApp(_args, nullptr)
 {
     _mainWindow.setLayout(&_layout);
+    _mainWindow.setGeometry(0, 0, 400, 400);
 }
 
 void DisplayManager::process(const std::unordered_map<std::string, Data>

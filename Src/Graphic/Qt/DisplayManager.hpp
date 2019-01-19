@@ -9,7 +9,7 @@
 #include "IDisplayManager.hpp"
 #include "AddWidget.hpp"
 #include "Menu.hpp"
-#include "TabManager.hpp"
+#include "Tabs/TabManager.hpp"
 #include <QApplication>
 #include <QtWidgets>
 #include <memory>
