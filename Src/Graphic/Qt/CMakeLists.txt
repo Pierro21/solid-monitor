@@ -19,7 +19,7 @@ find_package(Qt5Widgets REQUIRED)
 include_directories(..)
 
 add_library(${PROJECT_NAME} SHARED
-        ../IDisplayManager.hpp DisplayManager.cpp DisplayManager.hpp Entrypoint.cpp)
+        ../IDisplayManager.hpp DisplayManager.cpp DisplayManager.hpp Entrypoint.cpp ../../types.hpp)
 
 target_link_libraries(${PROJECT_NAME} Qt5::Core)
 target_link_libraries(${PROJECT_NAME} Qt5::Widgets)

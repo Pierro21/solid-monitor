@@ -37,3 +37,10 @@ std::vector<std::shared_ptr<IModule>> core::DLManager::getModuleV()
     }
     return res;
 }
+
+void core::DLManager::clear()
+{
+    auto err = _displayDL.release();
+    for (auto &i : _moduleDLV)
+        auto err2 = i.release();
+}

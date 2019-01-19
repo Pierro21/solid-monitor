@@ -21,7 +21,7 @@ namespace core {
         );
         std::shared_ptr<IDisplayManager> getDisplay();
         std::vector<std::shared_ptr<IModule>> getModuleV();
-
+        void clear();
     private:
         std::unique_ptr<DLLoader<IDisplayManager>> _displayDL;
         std::vector<std::unique_ptr<DLLoader<IModule>>> _moduleDLV;

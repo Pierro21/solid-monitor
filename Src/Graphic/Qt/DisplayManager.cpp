@@ -7,27 +7,38 @@
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QTabWidget>
+#include <iostream>
 #include "DisplayManager.hpp"
 
-void DisplayManager::start()
+DisplayManager::DisplayManager() :
+_args(0),
+_qApp(_args, nullptr),
+_edit("Edit")
 {
+//    QObject::connect(quitButton, SIGNAL(clicked()), qApp, SLOT(quit()));
+    _layout.addWidget(&_edit);
+    _layout.addWidget(&_tabList);
+    _mainWindow.setLayout(&_layout);
 }
 
-DisplayManager::DisplayManager() : _args(0), _qApp(_args, nullptr)
+void DisplayManager::process(std::unordered_map<std::string, moduleData> datas)
 {
+    _mainWindow.show();
+    _qApp.processEvents();
+}
 
-    auto *textEdit = new QTextEdit;
-    QPushButton *quitButton = new QPushButton("&Quit");
+void DisplayManager::init(const std::vector<std::string> &availableModules)
+{
+    _availableModules = availableModules;
+}
 
-    QObject::connect(quitButton, SIGNAL(clicked()), qApp, SLOT(quit()));
+bool DisplayManager::isOpen() const
+{
+    return _mainWindow.isVisible();
+}
 
-    auto *layout = new QVBoxLayout;
-    layout->addWidget(textEdit);
-    layout->addWidget(quitButton);
-
-    QWidget window;
-    window.setLayout(layout);
-
-    window.show();
-    _qApp.exec();
+const std::vector<std::string> &DisplayManager::getEnableModules() const
+{
+    return _enableModules;
 }

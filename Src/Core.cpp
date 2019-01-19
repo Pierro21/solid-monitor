@@ -5,6 +5,7 @@
 
 #include <memory>
 #include <iostream>
+#include <vector>
 #include <experimental/filesystem>
 #include "Core.hpp"
 
@@ -16,7 +17,16 @@ core::Core::Core(
     _moduleV = _dlmanager.getModuleV();
 }
 
+core::Core::~Core()
+{
+    _dlmanager.clear();
+}
+
+
 void core::Core::run()
 {
-
+    _display->init(std::vector<std::string>({"toto", "roger"}));
+    _display->process(std::unordered_map<std::string, moduleData>());
+    while (_display->isOpen())
+        _display->process(std::unordered_map<std::string, moduleData>());
 }

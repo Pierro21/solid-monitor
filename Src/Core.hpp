@@ -18,6 +18,7 @@ namespace core {
         explicit Core(const std::string &pathToDisplay,
             const std::string &pathToModules
         );
+        ~Core();
 
         void run();
 
