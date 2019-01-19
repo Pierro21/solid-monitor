@@ -19,7 +19,7 @@ find_package(Qt5Widgets REQUIRED)
 include_directories(..)
 
 add_library(${PROJECT_NAME} SHARED
-        ../IDisplayManager.hpp DisplayManager.cpp DisplayManager.hpp Entrypoint.cpp ../../types.hpp AddWidget.cpp AddWidget.hpp Menu.cpp Menu.hpp TabManager.cpp TabManager.hpp ../../DataTypes.cpp ../../DataTypes.hpp WidgetItem.cpp WidgetItem.hpp TabView.cpp TabView.hpp Tab.cpp Tab.hpp)
+        ../IDisplayManager.hpp DisplayManager.cpp DisplayManager.hpp Entrypoint.cpp ../../types.hpp AddWidget.cpp AddWidget.hpp Menu.cpp Menu.hpp TabManager.cpp TabManager.hpp ../../DataTypes.cpp ../../DataTypes.hpp WidgetItem.cpp WidgetItem.hpp TabView.cpp TabView.hpp Tab.cpp Tab.hpp ../../Data.cpp ../../Data.hpp)
 
 target_link_libraries(${PROJECT_NAME} Qt5::Core)
 target_link_libraries(${PROJECT_NAME} Qt5::Widgets)

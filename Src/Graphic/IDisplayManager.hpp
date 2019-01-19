@@ -7,13 +7,14 @@
 #define SOLID_MONITOR_IDISPLAYMANAGER_HPP
 
 #include <unordered_map>
+#include "Data.hpp"
 #include "DataTypes.hpp"
 #include "types.hpp"
 
 class IDisplayManager {
 public:
     virtual ~IDisplayManager() = 0;
-    virtual void process(const std::unordered_map<std::string, moduleData>
+    virtual void process(const std::unordered_map<std::string, Data>
         &datas) = 0;
     virtual bool isOpen() const = 0;
     virtual void init(const std::vector<DataTypes> &availableModules) = 0;

@@ -18,7 +18,7 @@ class DisplayManager : public IDisplayManager {
 public:
     DisplayManager();
     ~DisplayManager() override = default;
-    void process(const std::unordered_map<std::string, moduleData> &datas)
+    void process(const std::unordered_map<std::string, Data> &datas)
     override;
     void init(const std::vector<DataTypes> &availableModules) override;
     bool isOpen() const override;
@@ -30,9 +30,8 @@ private:
     QApplication _qApp;
     QWidget _mainWindow;
     std::unique_ptr<Menu> _menu;
-    std::unique_ptr<TabManager> _tabList;
+    std::unique_ptr<TabManager> _tabManager;
     QVBoxLayout _layout;
-    std::vector<DataTypes> _availableModules;
     std::vector<DataTypes> _enableModules;
 };
 

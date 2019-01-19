@@ -23,6 +23,8 @@ namespace core {
         void run();
 
     private:
+        void init();
+    private:
         std::shared_ptr<IDisplayManager> _display;
         std::vector<std::shared_ptr<IModule>> _moduleV;
         DLManager _dlmanager;

@@ -19,20 +19,20 @@ _qApp(_args, nullptr)
     _mainWindow.setLayout(&_layout);
 }
 
-void DisplayManager::process(const std::unordered_map<std::string, moduleData>
+void DisplayManager::process(const std::unordered_map<std::string, Data>
     &datas
 )
 {
+    dynamic_cast<Tab *>(_tabManager->currentWidget())->process(datas);
     _qApp.processEvents();
 }
 
 void DisplayManager::init(const std::vector<DataTypes> &availableModules)
 {
     _menu = std::make_unique<Menu>(availableModules, &_mainWindow);
-    _tabList = std::make_unique<TabManager>(availableModules, &_mainWindow);
-    _availableModules = availableModules;
+    _tabManager = std::make_unique<TabManager>(availableModules, &_mainWindow);
     _layout.addWidget(_menu.get());
-    _layout.addWidget(_tabList.get());
+    _layout.addWidget(_tabManager.get());
     _mainWindow.show();
 }
 

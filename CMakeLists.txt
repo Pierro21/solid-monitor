@@ -13,14 +13,14 @@ include_directories(
         Src/Modules)
 
 add_subdirectory(Src/Graphic/Qt)
-
+add_subdirectory(Src/Modules/Clock)
 add_executable(${PROJECT_NAME}
         Src/main.cpp
         Src/Core.cpp
         Src/Core.hpp
         Src/Graphic/IDisplayManager.hpp
         Src/Modules/IModule.hpp
-        Src/DLLoader.hpp Src/DLManager.cpp Src/DLManager.hpp Src/types.hpp Src/DataTypes.cpp Src/DataTypes.hpp)
+        Src/DLLoader.hpp Src/DLManager.cpp Src/DLManager.hpp Src/types.hpp Src/DataTypes.cpp Src/DataTypes.hpp Src/Data.cpp Src/Data.hpp)
 
 
 

@@ -7,6 +7,8 @@
 #define SOLID_MONITOR_TAB_MANAGER_HPP
 
 #include <QtWidgets/QTabWidget>
+#include <unordered_map>
+#include <Data.hpp>
 #include "types.hpp"
 #include "TabView.hpp"
 #include "Tab.hpp"

@@ -10,18 +10,12 @@
 #include <memory>
 #include <vector>
 
-struct graphData {
-    float min;
-    float max;
-    float actual;
-};
+/*
 
-struct moduleData {
-    std::string name;
-    std::string generalInfo;
-    std::unique_ptr<graphData> globalRange;
-    std::vector<float> history;
-    std::vector<moduleData> subModule;
+
+struct Data {
+
 };
+*/
 
 #endif //SOLID_MONITOR_TYPES_HPP

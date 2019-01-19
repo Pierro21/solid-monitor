@@ -15,4 +15,5 @@ TabManager::TabManager(const std::vector<DataTypes> &v,
     auto core = std::make_unique<Tab>(v, this);
     addTab(core.get(), "core");
     _tabs.emplace("core", std::move(core));
+
 }
