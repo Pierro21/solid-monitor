@@ -7,61 +7,65 @@
 
 const std::string &Data::getName() const
 {
-    return name;
+    return _name;
 }
 
 void Data::setName(const std::string &name)
 {
-    Data::name = name;
+    Data::_name = name;
 }
 
 const std::string &Data::getGeneralInfo() const
 {
-    return generalInfo;
+    return _generalInfo;
 }
 
 void Data::setGeneralInfo(const std::string &generalInfo)
 {
-    Data::generalInfo = generalInfo;
+    Data::_generalInfo = generalInfo;
 }
 
 const std::shared_ptr<Data::graphData> &Data::getGlobalRange() const
 {
-    return globalRange;
+    return _globalRange;
 }
 
 void Data::setGlobalRange(const std::shared_ptr<graphData> &globalRange)
 {
-    Data::globalRange = globalRange;
+    Data::_globalRange = globalRange;
 }
 
 const std::vector<float> &Data::getHistory() const
 {
-    return history;
+    return _history;
 }
 
 void Data::setHistory(const std::vector<float> &history)
 {
-    Data::history = history;
+    Data::_history = history;
 }
 
 const std::vector<Data> &Data::getSubModule() const
 {
-    return subModule;
+    return _subModule;
 }
 
 void Data::setSubModule(const std::vector<Data> &subModule)
 {
-    Data::subModule = subModule;
+    Data::_subModule = subModule;
 }
 
 Data::Data(const Data &data)
 {
-    name = data.name;
-    generalInfo = data.generalInfo;
-    globalRange = data.globalRange;
-    subModule = data.subModule;
+    _name = data._name;
+    _generalInfo = data._generalInfo;
+    _globalRange = data._globalRange;
+    _subModule = data._subModule;
 
+}
+
+Data::Data(const std::string &name): _name(name)
+{
 }
 
 float Data::graphData::getMin() const

@@ -30,6 +30,7 @@ public:
         float actual;
     };
     Data() = default;
+    Data(const std::string &name);
     Data(const Data &data);
     const std::string &getName() const;
 
@@ -52,11 +53,11 @@ public:
     void setSubModule(const std::vector<Data> &subModule);
 
 private:
-    std::string name;
-    std::string generalInfo;
-    std::shared_ptr<graphData> globalRange;
-    std::vector<float> history;
-    std::vector<Data> subModule;
+    std::string _name;
+    std::string _generalInfo;
+    std::shared_ptr<graphData> _globalRange;
+    std::vector<float> _history;
+    std::vector<Data> _subModule;
 };
 
 #endif //SOLID_MONITOR_DATA_HPP

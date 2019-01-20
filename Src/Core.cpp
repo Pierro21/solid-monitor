@@ -7,6 +7,7 @@
 #include <iostream>
 #include <vector>
 #include <experimental/filesystem>
+#include <thread>
 #include "Core.hpp"
 #include "Data.hpp"
 
@@ -26,16 +27,23 @@ core::Core::~Core()
 void core::Core::run()
 {
     init();
+    auto begin = std::chrono::system_clock::now();
+    auto end = std::chrono::system_clock::now();
+    auto diff = end - begin;
     while (_display->isOpen()) {
         std::unordered_map<std::string, Data> datas({});
         for (auto &i : _moduleV) {
             auto h = i->getModuleData();
             for (auto &j : h) {
                 datas[j.getName()] = j;
-
             }
         }
         _display->process(datas);
+        end = std::chrono::system_clock::now();
+        diff = end - begin;
+        std::this_thread::sleep_for(
+            std::chrono::milliseconds(10) - diff);
+        begin = end;
     }
 }
 

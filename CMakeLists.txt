@@ -14,6 +14,7 @@ include_directories(
 
 add_subdirectory(Src/Graphic/Qt)
 add_subdirectory(Src/Modules/Clock)
+add_subdirectory(Src/Modules/User)
 add_executable(${PROJECT_NAME}
         Src/main.cpp
         Src/Core.cpp
