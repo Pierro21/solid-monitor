@@ -8,6 +8,7 @@
 GeneralWidget::GeneralWidget(const QString &str, QWidget *parent) : AWidget(parent)
 {
     _text.setAlignment(Qt::AlignCenter);
+    _text.setWordWrap(true);
     _layout.addWidget(&_text);
     setLayout(&_layout);
 }

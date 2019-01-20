@@ -26,6 +26,7 @@ private:
     bool _hasGeneric;
     bool _hasGraph;
     bool _hasHistoGraph;
+    size_t refreshTime;
 };
 
 #endif //SOLID_MONITOR_DATATYPES_HPP

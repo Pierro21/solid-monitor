@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <Widgets/GeneralWidget.hpp>
+#include <Widgets/HistoWidget.hpp>
 #include "Tab.hpp"
 
 Tab::Tab(const std::vector<DataTypes> &v, QWidget *parent): QTabWidget(parent),
@@ -24,7 +25,7 @@ void Tab::insertNew(QTreeWidgetItem *item, int column)
         } else if (typeWidget == "graph")
             widget = std::make_unique<GeneralWidget>(typeInfos, this);
         else
-            widget = std::make_unique<GeneralWidget>(typeInfos, this);
+            widget = std::make_unique<HistoWidget>(typeInfos, 1, this);
 
         _layout.addWidget(widget.get());
         _widgets[typeInfos.toUtf8().data()] = std::move(widget);
